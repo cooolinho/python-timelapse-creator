@@ -1,8 +1,10 @@
 # 🌱 Timelapse Creator
 
-Erstellt ein Zeitraffer-Video aus einer Reihe von Fotos — ideal für Pflanzenwachstum, Baustellen, Wetter oder andere langsame Prozesse.
+Creates a timelapse video from a series of photos — ideal for plant growth, construction sites, weather, or other slow processes.
 
-## Voraussetzungen
+> 🇩🇪 Deutsche Version: [README.de.md](README.de.md)
+
+## Requirements
 
 - Python 3.8+
 - pip
@@ -14,62 +16,62 @@ cd python-timelapse-creator
 pip install -r requirements.txt
 ```
 
-## Verwendung
+## Usage
 
-Alle Befehle werden **aus dem Projektordner** ausgeführt (`cd python-timelapse-creator`). Verwende `python3` statt `python`, falls `python` bei dir nicht verfügbar ist.
+All commands are run **from the project folder** (`cd python-timelapse-creator`). Use `python3` instead of `python` if `python` is not available on your system.
 
-### Grundlegend
+### Basic
 
 ```bash
-# Standard: 24fps MP4, Fotos aus ./photos -> ./output
+# Default: 24fps MP4, photos from ./photos -> ./output
 python3 timelapse.py
 
 # Custom FPS
 python3 timelapse.py --fps 12
 
-# 0.5 Sekunden pro Bild (= 2fps)
+# 0.5 seconds per frame (= 2fps)
 python3 timelapse.py --duration 0.5
 
-# Custom Pfade
-python3 timelapse.py -i ./meine_fotos -o ./mein_video
+# Custom paths
+python3 timelapse.py -i ./my_photos -o ./my_video
 
-# Full-HD Auflösung erzwingen
+# Force Full-HD resolution
 python3 timelapse.py --resolution 1920x1080
 
-# Alle Einstellungen
-python3 timelapse.py -i ./photos -o ./output --fps 12 --format mp4 --resolution 1920x1080 --filename wachstum
+# All settings
+python3 timelapse.py -i ./photos -o ./output --fps 12 --format mp4 --resolution 1920x1080 --filename growth
 ```
 
-### Parameter
+### Parameters
 
-| Argument | Beschreibung | Standard |
+| Argument | Description | Default |
 |---|---|---|
-| `--input` / `-i` | Ordner mit Eingabefotos | `./photos` |
-| `--output` / `-o` | Ausgabeordner | `./output` |
-| `--fps` | Bilder pro Sekunde | `24` |
-| `--duration` | Dauer pro Bild in Sekunden (überschreibt `--fps`) | — |
+| `--input` / `-i` | Input folder with photos | `./photos` |
+| `--output` / `-o` | Output folder | `./output` |
+| `--fps` | Frames per second | `24` |
+| `--duration` | Duration per frame in seconds (overrides `--fps`) | — |
 | `--format` | `mp4`, `avi`, `mkv` | `mp4` |
-| `--resolution` | `WIDTHxHEIGHT` oder `original` | `original` |
-| `--filename` | Name der Ausgabedatei (ohne Endung) | `timelapse` |
+| `--resolution` | `WIDTHxHEIGHT` or `original` | `original` |
+| `--filename` | Output filename (without extension) | `timelapse` |
 
-**Hinweis zum FPS:** Hohe FPS = schneller Zeitraffer. Beim stündlichen Foto (24 Bilder = 1 Tag Laufzeit):
-- `--fps 24` → 1 Sekunde Video pro Tag
-- `--fps 12` → 2 Sekunden Video pro Tag
-- `--fps 4` → 6 Sekunden Video pro Tag
+**Note on FPS:** Higher FPS = faster timelapse. With hourly photos (24 images = 1 day of recording):
+- `--fps 24` → 1 second of video per day
+- `--fps 12` → 2 seconds of video per day
+- `--fps 4` → 6 seconds of video per day
 
-### Tipps
+### Tips
 
-- **Bildbenennung**: Fotos sollten chronologisch benannt werden (z.B. `2024-08-31_12-00.jpg`, `2024-08-31_13-00.jpg`), da sie alphabetisch sortiert werden.
-- **Unterstützte Formate**: `.jpg`, `.jpeg`, `.png`, `.webp`, `.bmp`, `.tiff`
-- **Auflösung**: Bei `original` werden alle Bilder auf die größte gefundene Auflösung skaliert, damit das Video flüssig ist.
+- **Naming images**: Photos should be named chronologically (e.g. `2024-08-31_12-00.jpg`, `2024-08-31_13-00.jpg`), since they are sorted alphabetically.
+- **Supported formats**: `.jpg`, `.jpeg`, `.png`, `.webp`, `.bmp`, `.tiff`
+- **Resolution**: With `original`, all images are scaled to the largest resolution found, so the video stays smooth.
 
-## Projektstruktur
+## Project structure
 
 ```
 python-timelapse-creator/
-├── timelapse.py          # Hauptscript
-├── requirements.txt      # Abhängigkeiten
-├── photos/               # Hier die Fotos ablegen
-├── output/               # Hier werden die Videos gespeichert
-└── README.md             # Diese Datei
+├── timelapse.py          # Main script
+├── requirements.txt      # Dependencies
+├── photos/               # Put your photos here
+├── output/               # Videos are saved here
+└── README.md             # This file
 ```
