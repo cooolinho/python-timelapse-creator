@@ -1,0 +1,29 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+.eggs/
+build/
+dist/
+.venv/
+venv/
+env/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Projekt-spezifisch: Generierte Bilder und Videos
+output/*
+!output/.gitkeep
+
+# Eigene Fotos (persönliche Daten, nicht ins Repo)
+photos/*
+!photos/.gitkeep
